@@ -1,0 +1,6 @@
+[Unit]
+Description=legitDNS updater service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/curl -Ss 'https://www.legitdns.com/api/v0/update.php?domain=${DDNS_DOMAIN}&token=${DDNS_TOKEN}'
