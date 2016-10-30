@@ -17,6 +17,7 @@ Environment=DDNS_TOKEN=insert_your_token_here
 EOF
 
 cp -r legitdns.* /etc/systemd/system/
+chown -R root:root /etc/systemd/system/legitdns.*
 
 systemctl daemon-reload
 systemctl enable legitdns.timer
@@ -27,4 +28,13 @@ systemctl start legitdns.timer
 
 ```shell
 systemctl status legitdns
+```
+
+## Removal
+
+```shell
+systemctl stop legitdns.timer
+systemctl disable legitdns.timer
+
+rm -rf root:root /etc/systemd/system/legitdns.*
 ```
